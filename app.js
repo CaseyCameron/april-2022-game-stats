@@ -21,6 +21,7 @@ function renderGames() {
 }
 
 function renderStats() {
+    // this should render out stuff
     statsList.textContent = '';
     for (let item of stats) {
         const li = renderStat(item);
@@ -29,13 +30,14 @@ function renderStats() {
 }
 
 function resetStats() {
+    // this should reset things
     stats = [];
     statsList.textContent = '';
 }
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    // Step 1 - add code to track each submission to the stats
+    // Step 1 - add code to track each submission to the stats and
     const formObj = {};
     const formData = new FormData(form);
     formData.forEach(function(value, key) {
