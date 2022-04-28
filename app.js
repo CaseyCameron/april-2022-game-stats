@@ -1,6 +1,6 @@
 import { renderStat, renderGame } from './utils.js';
 
-const form = document.getElementById('add-stat');
+const form = document.querySelector('form');
 const statsList = document.getElementById('stats-list');
 const gameList = document.getElementById('game-list');
 
@@ -34,10 +34,20 @@ function resetStats() {
 }
 
 form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
     // Step 1 - add code to track each submission to the stats
     // Create an object to "model" you statistic like the following:
-    // { player: 'Bob', points: 2 }
+    
+    const formObj = {};
+    const formData = new FormData(form);
+    
     // Hint -- create the object from the form, push it onto the stats array, then call renderStats
+    formData.forEach(function(value, key) {
+        formObj[key] = value;
+    });
+    stats.push(formObj);
+    renderStats();
 });
 
 remove.addEventListener('click', () => {
